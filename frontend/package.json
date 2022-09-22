@@ -1,0 +1,33 @@
+{
+  "name": "mui-vite-ts-monorepo-frontend",
+  "description": "Front end using common class-validation, TypeScript, Vite, React, MUI v5 styled components in pnpm monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf ./dist tsconfig.tsbuildinfo",
+    "build": "pnpm i && npx tsc --incremental && vite build --force",
+    "preview": "vite preview",
+    "start:dev": "tsc --incremental && vite --open"
+  },
+  "dependencies": {
+    "@cosmology/validation": "workspace:*",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.5",
+    "axios": "^0.27.2",
+    "class-validator": "^0.13.2",
+    "concurrently": "^7.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@originjs/vite-plugin-commonjs": "^1.0.3",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.1.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "pnpm-vite-ts-monorepo-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm --stream -r run build",
+    "clean": "pnpm -r run clean",
+    "start:dev": "pnpm --stream -r run start:dev",
+    "start": "pnpm --stream -r start"
+  },
+  "keywords": [],
+  "author": "ivanprokic@gmail.com",
+  "license": "MIT"
+}

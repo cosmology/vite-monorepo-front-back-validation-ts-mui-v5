@@ -1,0 +1,20 @@
+{
+  "name": "@cosmology/validation",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Common types and class-validation library used for both front and back code",
+  "main": "build/index.js",
+  "scripts": {
+    "clean": "rm -rf ./node_modules build tsconfig.tsbuildinfo",
+    "build": "pnpm i && npx tsc --incremental"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "class-validator": "^0.13.2"
+  }
+}
