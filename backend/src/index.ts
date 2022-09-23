@@ -13,7 +13,7 @@ import {
   ITodoItem,
 } from '@cosmology/validation';
 
-const todoList: ITodoItem[] = [
+let todoList: ITodoItem[] = [
   {
     text: 'Eat',
   },
@@ -53,7 +53,9 @@ app.post(
       return;
     }
 
-    todoList.push(todoItem);
+    // prepend spreading instead of using push
+    todoList = [...[todo], ...todoList];
+
     res.sendStatus(200);
   })
 );

@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "clean": "rm -rf ./dist tsconfig.tsbuildinfo",
+    "clean": "rm -rf node_modules ./dist tsconfig.tsbuildinfo",
     "build": "pnpm i && npx tsc --incremental && vite build --force",
     "preview": "vite preview",
     "start:dev": "tsc --incremental && vite --open"
