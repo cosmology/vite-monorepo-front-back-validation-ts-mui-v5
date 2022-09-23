@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { validate, ValidationError } from 'class-validator';
+import { ValidationError } from 'class-validator';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
@@ -54,6 +54,8 @@ function App() {
     axios
       .get<IGetTodosResponse>(`${BASE_URL}/todos`)
       .then(({ data }) => {
+        console.log('IGetTodosResponse');
+        console.log({ data });
         setTodoList(data.todoList);
       })
       .catch((err) => {
@@ -76,10 +78,10 @@ function App() {
 
     // comment this out to see the back end validation bringing
     // the same user experience as front end
-    if (errors.length > 0) {
-      setErrors(errors);
-      return;
-    }
+    // if (errors.length > 0) {
+    //   setErrors(errors);
+    //   return;
+    // }
 
     try {
       await axios.post<IAddTodoPayload>(`${BASE_URL}/todo`, {
@@ -101,8 +103,8 @@ function App() {
       setErrors(errors);
       return;
     }
-
-    setTodoList(todoList.concat([newTodoItem]));
+    // merge spreading for better ui instead of pushing down the screen
+    setTodoList([...[newTodoItem], ...todoList]);
     setNewTodoItemText('');
     setErrors([]);
   }
@@ -114,10 +116,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Typography color="primary" variant="h1" sx={{ m: 3 }}>
+      <Typography color="primary" variant="h1" sx={{ m: 3 }} align="center">
         {selectedTheme?.palette?.mode}{' '}
         {selectedTheme?.palette?.mode === 'dark' ? '🌙' : '🌞'}
       </Typography>
+
       <Box>
         <Paper
           component={Stack}
